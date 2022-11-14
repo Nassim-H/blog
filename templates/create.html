@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{% block title %} Ajout d'un nouveau film {% endblock %}</h1>
+
+<form method="post">
+
+<div class="form-group">
+
+<label for="title">Titre du film</label>
+        <input type="text" name="title"
+               placeholder="Titre" class="form-control"
+               value="{{ request.form['title'] }}" id="title"></input>
+    </div>
+    <div class="form-group">
+        <label for="acroche">Acroche</label>
+        <input type="text" name="acroche"
+               placeholder="Acroche" class="form-control"
+               value="{{ request.form['acroche'] }}" id="acroche"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="content">Contenu</label>
+        <textarea name="content" placeholder="Contenu du post" rows="100" cols="100"
+                  class="form-control" id="name">{{ request.form['content'] }}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="origine">Origine</label>
+        <textarea name="origine" placeholder="Origine du post" rows="5" cols="5"
+                  class="form-control" id="origine">{{ request.form['origine'] }}</textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="genre">Genre</label>
+        <select name="genre"
+        <option>Société</option>
+                  class="form-control" id="genre">{{ request.form['genre'] }}</select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+{% endblock %}
