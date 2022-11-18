@@ -20,22 +20,35 @@
     </div>
 
     <div class="form-group">
-        <label for="content">Contenu</label>
+        <label for="name">Contenu</label>
         <textarea name="content" placeholder="Contenu du post" rows="100" cols="100"
                   class="form-control" id="name">{{ request.form['content'] }}</textarea>
     </div>
     <div class="form-group">
         <label for="origine">Origine</label>
-        <textarea name="origine" placeholder="Origine du post" rows="5" cols="5"
+        <textarea name="origine" placeholder="Origine du visionnage du film" rows="5" cols="5"
                   class="form-control" id="origine">{{ request.form['origine'] }}</textarea>
     </div>
 
+   <!-- <div class="form-group">
+        <label for="genre">Genre</label>
+
+        <select name="genre" id="genre-select">
+    <option value="">Genre</option>
+    <option name="genre" id="genre" value="{{ request.form['genre'] }}">societe</option>
+    <option value="{{ request.form['genre'] }}">Science-Fiction</option>
+    <option value="{{ request.form['genre'] }}">Hors-catégorie</option>
+    <option value="{{ request.form['genre'] }}">Comédie</option>
+</select>
+
+    </div>-->
     <div class="form-group">
         <label for="genre">Genre</label>
-        <select name="genre"
-        <option>Société</option>
-                  class="form-control" id="genre">{{ request.form['genre'] }}</select>
+        <input type="text" name="genre"
+               placeholder="genre" class="form-control"
+               value="{{ request.form['genre'] }}" id="genre"></input>
     </div>
+
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>

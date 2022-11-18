@@ -55,31 +55,29 @@
 
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-      <a class="p-2 link-secondary" href="genre">Société</a>
-      <a class="p-2 link-secondary" href="/">Science-Fiction</a>
-      <a class="p-2 link-secondary" href="#">Drame</a>
-      <a class="p-2 link-secondary" href="#">Thriller psychologiques</a>
-      <a class="p-2 link-secondary" href="#">Romance</a>
-      <a class="p-2 link-secondary" href="#">Business</a>
-      <a class="p-2 link-secondary" href="#">Comédie</a>
-      <a class="p-2 link-secondary" href="#">Action</a>
-      <a class="p-2 link-secondary" href="#">Hors catégorie</a>
+      <a class="p-2 link-secondary" href="{{url_for('genre',genre_id='societe')}}">Société</a>
+      <a class="p-2 link-secondary" href="{{url_for('genre',genre_id='science-fiction')}}">Science-Fiction</a>
+      <a class="p-2 link-secondary" href="{{url_for('genre',genre_id='thriller')}}">Thriller psychologiques</a>
+      <a class="p-2 link-secondary" href="{{url_for('genre',genre_id='romance')}}">Romance</a>
+      <a class="p-2 link-secondary" href="{{url_for('genre',genre_id='business')}}">Business</a>
+      <a class="p-2 link-secondary" href="{{url_for('genre',genre_id='comedie')}}">Comédie</a>
+      <a class="p-2 link-secondary" href="{{url_for('genre',genre_id='action')}}">Action</a>
+      <a class="p-2 link-secondary" href="{{url_for('genre',genre_id='hors-categorie')}}">Hors catégorie</a>
     </nav>
   </div>
 </div>
 <main class="container">
-
- <div class="row mb-2">
-    {% for post in posts %}
+<div class="row mb-2">
+    {% for post in genres %}
     <div class="col-md-6">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">World</strong>
+          <strong class="d-inline-block mb-2 text-primary">{{ post['genre'] }}</strong>
           <h3 class="mb-0">{{ post['title'] }}</h3> <!--Title-->
           <div class="mb-1 text-muted">Nov 12</div>
           <!--Content-->
           <p class="card-text mb-auto">{{ post['created'] }}</p>
-          <a href="{{ url_for('post', post_id=post['id']) }}" class="stretched-link">Continue reading</a>
+          <a href="{{ url_for('post', post_id=post['id']) }}" class="stretched-link">Continuer à lire</a>
         </div>
         <div class="col-auto d-none d-lg-block">
           <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
@@ -88,5 +86,6 @@
     </div>
     {% endfor %}
   </div>
+</main>
 </body>
 </html>
